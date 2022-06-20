@@ -11,10 +11,13 @@ let package = Package(
     products: [
         .library(name: "SingleChat", targets: ["SingleChat"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/nathantannar4/InputBarAccessoryView.git", .upToNextMajor(from: "5.2.0"))
+    ],
     targets: [
         .target(name: "SingleChat",
-               path: ".",
-               exclude: ["README.md"])
+                dependencies: ["InputBarAccessoryView"],
+                path: ".",
+                exclude: ["README.md"])
     ]
 )
